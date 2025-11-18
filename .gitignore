@@ -1,5 +1,2 @@
-# Ignore Vagrant folder
 .vagrant/
-
-# Ignore shared folders
-shared/
+p1/shared/
