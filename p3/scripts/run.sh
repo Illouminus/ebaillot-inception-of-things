@@ -1,15 +1,7 @@
-
-
-k3d cluster create mycluster
-
-# Creating the namespaces
-kubectl create namespace argocd
-kubectl create namespace dev
-
-# Installing argocd in the namespace
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
-# Check the argoCD pods
-kubectl get pods -n argocd
-
-kubectl port-forward svc/argocd-server -n argocd 8000:443
+# kubectl apply -f configurations/namespaces/argocd-namespace.yaml
+kubectl apply -f configurations/namespaces/dev-namespace.yaml
+kubectl apply -f configurations/app/deployment.yaml
+kubectl apply -f configurations/app/service.yaml
+kubectl apply -f configurations/argocd/application.yaml -n argocd
+kubectl get secret argocd-initial-admin-secret -n argocd \
+  -o jsonpath="{.data.password}" | base64 -d; echo
