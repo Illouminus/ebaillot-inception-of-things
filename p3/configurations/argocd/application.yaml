@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/illouminus/inception-of-things.git
-    targetRevision: alisa
+    repoURL: https://github.com/illouminus/ebaillot-inception-of-things.git
+    targetRevision: main
     path: p3/configurations/app
   destination:
     server: https://kubernetes.default.svc
